@@ -1,5 +1,7 @@
 const express=require("express");
 const db_connection=require("./config_dbs/database");
+const netli=require("serverless-http");
+const ServerlessHttp = require("serverless-http");
 
 const app =express();
 app.use(express.json());
@@ -54,6 +56,8 @@ async function test(){
 }
 test()
 
-app.listen(PORT,() =>{
-    console.log('server is running at http://localhost:3000');
-});
+// app.listen(PORT,() =>{
+//     console.log('server is running at http://localhost:3000');
+// });
+const handler=netli(app)
+module.exports.handler
